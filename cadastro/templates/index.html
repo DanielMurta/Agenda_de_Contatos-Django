@@ -54,6 +54,7 @@
             </tr>
           </thead>
           <tbody>
+          <!--For para exibir as informações no dicionário 'data'-->
           {% for dbs in db %}
             <tr>
               <td>{{dbs.id}}</td>
@@ -62,11 +63,13 @@
               <td>{{dbs.email}}</td>
               <td>{{dbs.numero_telefone}}</td>
               <td>
+                  <!--href="" = Ao clicar no botão a pagina será redirecionada-->
                   <a href="view/{{dbs.id}}/" class="btn btn-dark">Vizualizar</a>
                   <a href="edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
                   <a href="delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
               </td>
             </tr>
+            <!--Fim do for-->
             {% endfor %}
         </table>
     </div>

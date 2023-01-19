@@ -27,3 +27,5 @@ urlpatterns = [
     path('update/<int:pk>/', views.update, name='update'),
     path('delete/<int:pk>/', views.delete, name='delete'),
 ]
+
+# <int:pk> são parâmetros dinâmicos. Nesse caso é um número inteiro e a primer key.
