@@ -8,7 +8,6 @@ def home(request):
     data['db'] = Pessoa.objects.all()
     return render(request, 'index.html', data)
 
-# Criação do Formulário
 def form(request):
     data = {}
     # Recebe o formulário de PessoasForm()
@@ -32,19 +31,24 @@ def view(request, pk):
 
 def edit(request, pk):
     data = {}
+    # Recebendo os dados de Pessoa de acordo com a pk
     data['db'] = Pessoa.objects.get(pk=pk)
-    data['form'] = PessoasForm(instance=data['db'])
+    # Recebendo os formulário
+    data['form'] = PessoasForm(instance=data['db']) # Instance será a pessoa de acordo com a PK.
     return render(request, 'form.html', data)
 
 def update(request, pk):
     data= {}
+    # Recebendo os dados de Pessoa de acordo com a pk
     data['db'] = Pessoa.objects.get(pk=pk)
-    form = PessoasForm(request.POST or None, instance=data['db'])
+    # Recebendo os formulário
+    form = PessoasForm(request.POST or None, instance=data['db']) # Django vai pegar os dados em request.POST em instance=data['db]
     if form.is_valid():
         form.save()
         return redirect('home')
 
 def delete(request, pk):
     db = Pessoa.objects.get(pk=pk)
+    # Deletando
     db.delete()
     return redirect('home')

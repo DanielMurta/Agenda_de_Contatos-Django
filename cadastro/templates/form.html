@@ -36,9 +36,11 @@
     </section>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <!-- Se já existe o data['db'] ele manda para o Update, Se não existe, manda para o create -->
         <form name="form" id="form" action="{% if db %}/update/{{ db.id }}/{% else %}/create/{% endif %}" method="post">
             {% csrf_token %}
             <div>Nome</div>
+            <!-- Exibindo o formulário -->
             <div class="form-group mt-4">{{ form.primeiro_nome }}</div>
             <div>Sobrenome</div>
             <div class="form-group mt-4">{{ form.ultimo_nome }}</div>
